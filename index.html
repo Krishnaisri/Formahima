@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Happy Birthday, Mahima ✦</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ════════════════════════════════════════
+   TOKENS
+════════════════════════════════════════ */
+:root{
+  --bg:#FCF4F1;
+  --surface:rgba(255,249,246,0.92);
+  --pink:#f4c6c6;
+  --lavender:#d6c9e8;
+  --text-primary:#2d2228;
+  --text-secondary:#7a6870;
+  --text-muted:#b0a0a8;
+  --accent:#c47a8a;
+  --border:rgba(200,170,180,0.22);
+  --white:#ffffff;
+  --feather:#FCF4F1;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-snap-type:y mandatory;}
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  color:var(--text-primary);
+  overflow-x:hidden;
+}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:rgba(196,122,138,0.25);border-radius:2px;}
+
+/* ════════════════════════════════════════
+   NAV
+════════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 52px;
+  background:rgba(252,244,241,0.82);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  transition:padding 300ms ease;
+}
+nav.compact{padding:14px 52px;}
+.nav-brand{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1.15rem;color:var(--accent);font-weight:400;
+  letter-spacing:0.02em;
+}
+.nav-links{display:flex;gap:34px;list-style:none;}
+.nav-links a{
+  font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--text-secondary);text-decoration:none;
+  transition:color 220ms ease;cursor:pointer;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-3px;left:0;right:0;
+  height:1px;background:var(--accent);
+  transform:scaleX(0);transition:transform 250ms ease;
+}
+.nav-links a:hover{color:var(--accent);}
+.nav-links a:hover::after{transform:scaleX(1);}
+.nav-links a.active{color:var(--accent);}
+.nav-links a.active::after{transform:scaleX(1);}
+
+/* ════════════════════════════════════════
+   SECTIONS  — full viewport, scroll-snap
+════════════════════════════════════════ */
+section{
+  position:relative;
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:100px 48px 80px;
+  overflow:hidden;
+  scroll-snap-align:start;
+}
+
+/* ── BG VIDEO (lives inside each section) ── */
+.section-video-wrap{
+  position:absolute;inset:0;z-index:0;
+  pointer-events:none;overflow:hidden;
+}
+.section-video-wrap video{
+  width:100%;height:100%;object-fit:cover;
+  opacity:0;
+  transition:opacity 1200ms ease;
+}
+.section-video-wrap video.playing{opacity:1;}
+
+/* Feathered edge overlay — blends video into --bg color on all 4 sides */
+.section-video-wrap::after{
+  content:'';
+  position:absolute;inset:0;z-index:2;
+  background:
+    linear-gradient(to right,  var(--feather) 0%, transparent 18%, transparent 82%, var(--feather) 100%),
+    linear-gradient(to bottom, var(--feather) 0%, transparent 16%, transparent 84%, var(--feather) 100%);
+  pointer-events:none;
+}
+
+/* Tinted scrim so text stays readable over any video */
+.section-scrim{
+  position:absolute;inset:0;z-index:1;
+  background:rgba(252,244,241,0.60);
+  pointer-events:none;
+}
+
+/* Content sits above video */
+.section-content{position:relative;z-index:3;width:100%;}
+
+/* ════════════════════════════════════════
+   SCROLL REVEAL
+════════════════════════════════════════ */
+.reveal{
+  opacity:0;
+  transform:translateY(32px);
+  transition:
+    opacity 850ms cubic-bezier(.22,.68,0,1.05),
+    transform 850ms cubic-bezier(.22,.68,0,1.05);
+}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ════════════════════════════════════════
+   HOME
+════════════════════════════════════════ */
+#home{text-align:center;}
+.home-bg{
+  position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 15% 25%, rgba(244,198,198,0.22) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 75%, rgba(214,201,232,0.22) 0%, transparent 55%);
+}
+.floating-petals{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;}
+.petal{position:absolute;border-radius:50% 0 50% 0;animation:petalFall linear infinite;}
+@keyframes petalFall{
+  0%  {transform:translateY(-30px) rotate(0deg);opacity:0;}
+  8%  {opacity:0.38;}
+  92% {opacity:0.18;}
+  100%{transform:translateY(110vh) rotate(400deg);opacity:0;}
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.fu{opacity:0;animation:fadeUp 900ms cubic-bezier(.22,.68,0,1.05) forwards;}
+.d1{animation-delay:150ms;}.d2{animation-delay:320ms;}.d3{animation-delay:500ms;}.d4{animation-delay:680ms;}
+
+.eyebrow{
+  font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:24px;
+}
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3rem,6.5vw,5.8rem);font-weight:500;
+  line-height:1.06;letter-spacing:-0.028em;
+  color:var(--text-primary);margin-bottom:22px;
+}
+.hero-title em{font-style:italic;color:var(--accent);}
+.hero-date{
+  font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:12px;
+}
+.hero-sub{
+  font-weight:300;font-size:1rem;color:var(--text-secondary);
+  line-height:1.88;margin-bottom:56px;
+}
+.scroll-hint{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  opacity:0;animation:fadeUp 800ms ease 1.2s forwards;
+}
+.scroll-hint span{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);}
+.scroll-line{
+  width:1px;height:36px;
+  background:linear-gradient(to bottom,var(--accent),transparent);
+  animation:scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(1);}50%{opacity:1;transform:scaleY(1.15);}}
+
+/* ════════════════════════════════════════
+   SHARED SECTION TYPOGRAPHY
+════════════════════════════════════════ */
+.section-eyebrow{
+  font-size:0.63rem;letter-spacing:0.24em;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:22px;
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,4vw,3.4rem);font-weight:500;
+  color:var(--text-primary);line-height:1.16;letter-spacing:-0.024em;
+  margin-bottom:32px;
+}
+.section-title em{font-style:italic;color:var(--accent);}
+.divider{
+  width:36px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  margin:0 auto 44px;
+}
+
+/* ════════════════════════════════════════
+   MESSAGE
+════════════════════════════════════════ */
+.letter-body{
+  font-weight:300;font-size:0.91rem;line-height:2.05;
+  color:var(--text-secondary);text-align:left;
+  background:rgba(255,252,250,0.88);
+  border:1px solid var(--border);border-radius:12px;
+  padding:38px 46px;position:relative;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+}
+.letter-body::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--pink),var(--lavender));
+  border-radius:12px 12px 0 0;
+}
+.letter-body p{margin-bottom:18px;}
+.letter-body p:last-child{margin-bottom:0;}
+.letter-sign{
+  margin-top:28px;font-family:'Playfair Display',serif;
+  font-style:italic;font-size:1.1rem;color:var(--accent);text-align:right;
+}
+
+/* ════════════════════════════════════════
+   MOMENTS TIMELINE
+════════════════════════════════════════ */
+.timeline{display:flex;flex-direction:column;position:relative;margin-top:44px;}
+.timeline::before{
+  content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;
+  background:linear-gradient(to bottom,transparent,var(--pink),var(--lavender),transparent);
+  transform:translateX(-50%);
+}
+.moment-card{
+  display:grid;grid-template-columns:1fr 60px 1fr;
+  align-items:center;margin-bottom:50px;
+  opacity:0;transition:opacity 700ms ease,transform 700ms cubic-bezier(.22,.68,0,1.05);
+}
+.moment-card.from-left {transform:translateX(-40px);}
+.moment-card.from-right{transform:translateX(40px);}
+.moment-card.card-in   {opacity:1;transform:translateX(0);}
+.moment-card:nth-child(odd)  .moment-info {grid-column:1;text-align:right;}
+.moment-card:nth-child(odd)  .moment-empty{grid-column:3;}
+.moment-card:nth-child(even) .moment-info {grid-column:3;text-align:left;}
+.moment-card:nth-child(even) .moment-empty{grid-column:1;}
+.moment-dot{
+  width:10px;height:10px;border-radius:50%;background:var(--accent);
+  margin:0 auto;box-shadow:0 0 0 4px rgba(196,122,138,0.15);grid-column:2;
+}
+.moment-info{padding:0 30px;}
+.moment-date{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:5px;}
+.moment-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:500;color:var(--text-primary);margin-bottom:5px;}
+.moment-desc{font-size:0.78rem;line-height:1.78;color:var(--text-secondary);font-weight:300;}
+
+/* ════════════════════════════════════════
+   QUESTIONS
+════════════════════════════════════════ */
+.question-card{
+  background:rgba(255,252,250,0.88);border:1px solid var(--border);
+  border-radius:16px;padding:46px 50px;margin-top:44px;
+  position:relative;overflow:hidden;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+.question-card::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% -10%,rgba(214,201,232,0.16),transparent 60%);
+  pointer-events:none;
+}
+.question-number{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--text-muted);margin-bottom:18px;}
+.question-text{font-family:'Playfair Display',serif;font-style:italic;font-size:1.38rem;line-height:1.5;color:var(--text-primary);margin-bottom:36px;}
+.answer-options{display:flex;flex-direction:column;gap:10px;}
+.answer-btn{
+  font-size:0.76rem;font-weight:400;letter-spacing:0.03em;
+  color:var(--text-secondary);background:transparent;
+  border:1px solid var(--border);border-radius:8px;
+  padding:13px 18px;cursor:pointer;text-align:left;
+  transition:all 280ms ease;display:flex;align-items:center;gap:12px;
+}
+.answer-btn::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  border:1px solid var(--text-muted);flex-shrink:0;transition:all 260ms;
+}
+.answer-btn:hover{border-color:rgba(196,122,138,0.45);color:var(--text-primary);background:rgba(196,122,138,0.05);transform:translateX(4px);}
+.answer-btn:hover::before,.answer-btn.selected::before{background:var(--accent);border-color:var(--accent);}
+.answer-btn.selected{border-color:var(--accent);background:rgba(196,122,138,0.07);color:var(--text-primary);}
+.q-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:32px;}
+.q-nav-btn{
+  font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--text-muted);background:transparent;
+  border:1px solid var(--border);border-radius:3px;padding:8px 18px;
+  cursor:pointer;transition:all 200ms;
+}
+.q-nav-btn:hover{color:var(--accent);border-color:rgba(196,122,138,0.4);}
+.q-nav-btn:disabled{opacity:0.28;cursor:default;}
+.q-dots{display:flex;gap:6px;}
+.q-dot{width:5px;height:5px;border-radius:50%;background:rgba(200,170,180,0.3);transition:background 300ms,transform 300ms;}
+.q-dot.active{background:var(--accent);transform:scale(1.3);}
+.question-response{
+  margin-top:22px;font-family:'Playfair Display',serif;font-style:italic;
+  font-size:0.88rem;color:var(--accent);opacity:0;
+  transition:opacity 450ms ease;min-height:22px;
+}
+.question-response.show{opacity:1;}
+
+/* ════════════════════════════════════════
+   GIFT
+════════════════════════════════════════ */
+.gift-box{
+  background:rgba(255,252,250,0.88);border:1px solid var(--border);
+  border-radius:16px;padding:44px 48px;margin-top:40px;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  text-align:center;
+}
+.gift-prompt{
+  font-family:'Playfair Display',serif;font-size:1.3rem;
+  font-weight:400;line-height:1.68;color:var(--text-primary);
+  margin-bottom:32px;
+}
+.gift-prompt em{font-style:italic;color:var(--accent);}
+.gift-choice{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-primary{
+  font-size:0.73rem;letter-spacing:0.09em;text-transform:uppercase;
+  color:var(--white);background:var(--accent);border:none;
+  border-radius:4px;padding:13px 28px;cursor:pointer;
+  transition:all 240ms;position:relative;overflow:hidden;
+}
+.btn-primary::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(255,255,255,0);
+  transition:background 200ms;
+}
+.btn-primary:hover{background:#b86879;transform:translateY(-2px);box-shadow:0 6px 20px rgba(196,122,138,0.3);}
+.btn-secondary{
+  font-size:0.73rem;letter-spacing:0.09em;text-transform:uppercase;
+  color:var(--text-secondary);background:transparent;
+  border:1px solid var(--border);border-radius:4px;
+  padding:13px 28px;cursor:pointer;transition:all 240ms;
+}
+.btn-secondary:hover{color:var(--accent);border-color:rgba(196,122,138,0.45);transform:translateY(-1px);}
+.gift-form{display:none;flex-direction:column;gap:14px;margin-top:32px;text-align:left;}
+.gift-form.open{display:flex;}
+.form-field label{
+  display:block;font-size:0.63rem;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--text-muted);margin-bottom:7px;
+}
+.form-field input,.form-field textarea{
+  width:100%;font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:300;
+  color:var(--text-primary);background:rgba(253,248,245,0.9);
+  border:1px solid var(--border);border-radius:6px;
+  padding:11px 15px;outline:none;transition:border-color 220ms,box-shadow 220ms;resize:none;
+}
+.form-field input:focus,.form-field textarea:focus{
+  border-color:rgba(196,122,138,0.55);
+  box-shadow:0 0 0 3px rgba(196,122,138,0.08);
+}
+.gift-response{
+  display:none;margin-top:28px;
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1.05rem;line-height:1.8;
+}
+.gift-response.show{display:block;}
+.gift-response.decline{color:var(--text-secondary);}
+.gift-response.success{color:var(--accent);}
+
+/* ════════════════════════════════════════
+   FINAL NOTE + STAR BG
+════════════════════════════════════════ */
+.stars-container{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
+.star{
+  position:absolute;border-radius:50%;background:var(--accent);
+  opacity:0;animation:twinkle ease-in-out infinite;
+}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(1);}50%{opacity:0.42;transform:scale(1.6);}}
+.final-quote{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(1.3rem,2.6vw,2rem);line-height:1.72;
+  color:var(--text-primary);margin:32px 0;letter-spacing:-0.01em;
+}
+.final-quote em{color:var(--accent);}
+.final-sub{
+  font-weight:300;font-size:0.85rem;color:var(--text-secondary);
+  line-height:2;margin-bottom:44px;
+}
+.final-sign{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1.3rem;color:var(--accent);
+}
+
+/* ════════════════════════════════════════
+   MUSIC PLAYER BAR
+════════════════════════════════════════ */
+#music-bar{
+  position:fixed;bottom:28px;right:28px;z-index:400;
+  display:flex;align-items:center;gap:14px;
+  background:rgba(255,252,250,0.88);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(196,122,138,0.22);
+  border-radius:60px;
+  padding:10px 20px 10px 10px;
+  box-shadow:0 8px 36px rgba(196,122,138,0.14),0 2px 8px rgba(0,0,0,0.06);
+  transition:transform 300ms ease,box-shadow 300ms ease;
+  cursor:default;
+  min-width:0;
+  animation:barSlideIn 800ms cubic-bezier(.22,.68,0,1.05) 1.8s both;
+}
+@keyframes barSlideIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+#music-bar:hover{transform:translateY(-3px);box-shadow:0 12px 48px rgba(196,122,138,0.22),0 2px 12px rgba(0,0,0,0.08);}
+
+.music-play-btn{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--accent);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  transition:transform 220ms ease,background 220ms;
+  box-shadow:0 4px 14px rgba(196,122,138,0.35);
+}
+.music-play-btn:hover{background:#b86879;transform:scale(1.08);}
+.music-play-btn svg{width:16px;height:16px;fill:#fff;}
+
+.music-info{display:flex;flex-direction:column;gap:2px;overflow:hidden;}
+.music-label{
+  font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--text-muted);white-space:nowrap;
+}
+
+
+/* Equalizer animation */
+.eq{display:flex;align-items:flex-end;gap:2px;height:14px;margin-top:3px;}
+.eq-bar{
+  width:3px;border-radius:2px;background:var(--accent);
+  animation:eqBounce ease-in-out infinite;
+  transform-origin:bottom;
+}
+.eq-bar:nth-child(1){height:6px;animation-duration:0.5s;animation-delay:0s;}
+.eq-bar:nth-child(2){height:12px;animation-duration:0.7s;animation-delay:0.1s;}
+.eq-bar:nth-child(3){height:8px;animation-duration:0.55s;animation-delay:0.2s;}
+.eq-bar:nth-child(4){height:14px;animation-duration:0.65s;animation-delay:0.05s;}
+.eq-bar:nth-child(5){height:5px;animation-duration:0.45s;animation-delay:0.15s;}
+@keyframes eqBounce{0%,100%{transform:scaleY(0.3);}50%{transform:scaleY(1);}}
+#music-bar.paused .eq-bar{animation-play-state:paused;}
+
+
+
+/* ════════════════════════════════════════
+   CURSOR GLOW
+════════════════════════════════════════ */
+.cursor-glow{
+  position:fixed;z-index:0;pointer-events:none;
+  width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle,rgba(196,122,138,0.07) 0%,transparent 70%);
+  transform:translate(-50%,-50%);
+  transition:left 80ms ease,top 80ms ease;
+  display:none;
+}
+@media(hover:hover){.cursor-glow{display:block;}}
+</style>
+</head>
+<body>
+
+<!-- Cursor glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-brand">Krishna</div>
+  <ul class="nav-links">
+    <li><a onclick="scrollTo_('#home')"     data-sec="home">Home</a></li>
+    <li><a onclick="scrollTo_('#message')"  data-sec="message">Message</a></li>
+    <li><a onclick="scrollTo_('#moments')"  data-sec="moments">Moments</a></li>
+    <li><a onclick="scrollTo_('#questions')"data-sec="questions">Questions</a></li>
+    <li><a onclick="scrollTo_('#gift')"     data-sec="gift">Gift ✦</a></li>
+    <li><a onclick="scrollTo_('#final')"    data-sec="final">Final Note</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════ HOME ══════════ -->
+<section id="home">
+  <div class="home-bg"></div>
+  <div class="floating-petals" id="petals"></div>
+  <div class="section-content" style="text-align:center;position:relative;z-index:2;">
+    <p class="hero-date fu d1">15 May ✦ A day that belongs to you</p>
+    <h1 class="hero-title fu d2">Happy Birthday,<br><em>Mahima</em></h1>
+    <p class="hero-sub fu d3">
+      Softly, quietly, this little world was made<br>
+      just for you — and this one day that belongs to you alone.
+    </p>
+    <div class="scroll-hint">
+      <span>Scroll to begin</span>
+      <div class="scroll-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ MESSAGE ══════════ -->
+<section id="message">
+  <div class="section-video-wrap" id="vid-message">
+    <video src="Message.mp4" muted playsinline loop preload="none"></video>
+  </div>
+  <div class="section-scrim"></div>
+  <div class="section-content" style="max-width:660px;text-align:center;">
+    <p class="section-eyebrow reveal">For you</p>
+    <h2 class="section-title reveal">A letter,<br><em>carefully kept</em></h2>
+    <div class="divider reveal"></div>
+    <div class="letter-body reveal">
+      <p>Mahima,</p>
+      <p>There are people who walk into your life and rearrange the furniture — not loudly, not dramatically, but in the way sunlight does when it shifts through a window at 4 pm and suddenly everything looks softer than it did before.</p>
+      <p>You're one of those people. You carry a quiet kind of warmth that doesn't announce itself. It just stays. And I think that's rarer than most people realize.</p>
+      <p>On this birthday, I hope you feel — for at least a few hours — how genuinely, completely seen you are. Not for what you do. Not for how well you hold things together. Just for being exactly you.</p>
+      <p>You deserve every beautiful, soft, wonder-filled thing this year might bring.</p>
+      <div class="letter-sign">With so much warmth, Krishna</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ MOMENTS ══════════ -->
+<section id="moments">
+  <div class="section-video-wrap" id="vid-moments">
+    <video src="Moments.mp4" muted playsinline loop preload="none"></video>
+  </div>
+  <div class="section-scrim"></div>
+  <div class="section-content" style="max-width:920px;width:100%;">
+    <div style="text-align:center;">
+      <p class="section-eyebrow reveal">A few memories</p>
+      <h2 class="section-title reveal">Moments that<br><em>stayed with me</em></h2>
+      <div class="divider reveal"></div>
+    </div>
+    <div class="timeline">
+      <div class="moment-card from-left">
+        <div class="moment-info"><p class="moment-date">The beginning</p><p class="moment-title">The first real conversation</p><p class="moment-desc">The kind where you forget time is passing. Where something shifts quietly and you don't notice until later — much later — that it mattered.</p></div>
+        <div class="moment-dot"></div><div class="moment-empty"></div>
+      </div>
+      <div class="moment-card from-right">
+        <div class="moment-empty"></div><div class="moment-dot"></div>
+        <div class="moment-info"><p class="moment-date">A quiet afternoon</p><p class="moment-title">Nothing, but everything</p><p class="moment-desc">Sometimes the most meaningful moments have no storyline. Just being present in the same space — that was enough. More than enough.</p></div>
+      </div>
+      <div class="moment-card from-left">
+        <div class="moment-info"><p class="moment-date">The laughing one</p><p class="moment-title">That ridiculous thing you said</p><p class="moment-desc">I still think about it and smile at the wrong times. You have this way of being funny without trying to be, which is its own rare art.</p></div>
+        <div class="moment-dot"></div><div class="moment-empty"></div>
+      </div>
+      <div class="moment-card from-right">
+        <div class="moment-empty"></div><div class="moment-dot"></div>
+        <div class="moment-info"><p class="moment-date">When it was hard</p><p class="moment-title">The day you kept going anyway</p><p class="moment-desc">I saw the weight you were carrying. I saw you carry it gracefully. That kind of quiet strength doesn't go unnoticed — even when you think it does.</p></div>
+      </div>
+      <div class="moment-card from-left">
+        <div class="moment-info"><p class="moment-date">Right now</p><p class="moment-title">This birthday</p><p class="moment-desc">The newest memory being made. A small digital universe built just to say: you matter, you are loved, and today belongs to you.</p></div>
+        <div class="moment-dot"></div><div class="moment-empty"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ QUESTIONS ══════════ -->
+<section id="questions">
+  <div class="section-video-wrap" id="vid-questions">
+    <video src="Question.mp4" muted playsinline loop preload="none"></video>
+  </div>
+  <div class="section-scrim"></div>
+  <div class="section-content" style="max-width:600px;text-align:center;">
+    <p class="section-eyebrow reveal">Let's go deeper</p>
+    <h2 class="section-title reveal">A few gentle<br><em>questions for you</em></h2>
+    <div class="divider reveal"></div>
+    <div class="question-card reveal">
+      <p class="question-number" id="qNum">Question 1 of 5</p>
+      <p class="question-text"   id="qText"></p>
+      <div class="answer-options" id="qOptions"></div>
+      <p class="question-response" id="qResponse"></p>
+      <div class="q-nav">
+        <button class="q-nav-btn" id="qPrev" onclick="changeQ(-1)" disabled>← Prev</button>
+        <div class="q-dots" id="qDots"></div>
+        <button class="q-nav-btn" id="qNext" onclick="changeQ(1)">Next →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ GIFT ══════════ -->
+<section id="gift">
+  <div class="section-video-wrap" id="vid-gift">
+    <video src="Gift.mp4" muted playsinline loop preload="none"></video>
+  </div>
+  <div class="section-scrim"></div>
+  <div class="section-content" style="max-width:560px;text-align:center;">
+    <p class="section-eyebrow reveal">Something waiting</p>
+    <h2 class="section-title reveal">A small gift,<br><em>if you'll let me</em></h2>
+    <div class="divider reveal"></div>
+    <div class="gift-box reveal">
+      <div id="giftPromptArea">
+        <p class="gift-prompt">Do you trust me enough to share your address so I can send you <em>something real?</em></p>
+        <div class="gift-choice">
+          <button class="btn-primary" onclick="openGiftForm()">Yes, I trust you</button>
+          <button class="btn-secondary" onclick="declineGift()">Maybe later</button>
+        </div>
+      </div>
+      <form class="gift-form" id="giftForm" action="https://formspree.io/f/xaqlby" method="POST" onsubmit="submitGift(event)">
+        <div class="form-field"><label>Your Name</label><input type="text" name="name" placeholder="Mahima Ahuja" required/></div>
+        <div class="form-field"><label>Address</label><textarea name="address" rows="3" placeholder="Street, City, State, Pincode" required></textarea></div>
+        <div class="form-field"><label>Phone (optional)</label><input type="tel" name="phone" placeholder="+91 XXXXX XXXXX"/></div>
+        <button type="submit" class="btn-primary" style="margin-top:6px;">Send it over ✦</button>
+      </form>
+      <div class="gift-response decline" id="giftDecline">"That's okay… some things can wait.<br><em>The thought was always yours.</em>"</div>
+      <div class="gift-response success" id="giftSuccess">"Received with so much care ✦<br><em>Something beautiful is on its way to you.</em>"</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FINAL NOTE ══════════ -->
+<section id="final">
+  <div class="section-video-wrap" id="vid-final">
+    <video src="Final_note.mp4" muted playsinline loop preload="none"></video>
+  </div>
+  <div class="section-scrim"></div>
+  <div class="stars-container" id="starsContainer"></div>
+  <div class="section-content" style="max-width:640px;text-align:center;">
+    <p class="section-eyebrow reveal">And finally</p>
+    <h2 class="section-title reveal">Before you go,<br><em>Mahima</em></h2>
+    <div class="divider reveal"></div>
+    <p class="final-quote reveal">
+      "May this year be gentler than the last —<br>
+      full of moments that feel like <em>exhaling,</em><br>
+      and people who make you feel like home."
+    </p>
+    <p class="final-sub reveal">
+      You are exactly the kind of person the world needs more of.<br>
+      The kind who listens. The kind who shows up. The kind who makes<br>
+      ordinary moments feel like they matter — because somehow, with you, they do.
+    </p>
+    <p class="final-sign reveal">With love, always — Krishna ✦</p>
+  </div>
+</section>
+
+<!-- ══════════ MUSIC BAR ══════════ -->
+<div id="music-bar" class="paused">
+  <button class="music-play-btn" id="playBtn" title="Play / Pause">
+    <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    <svg id="pauseIcon" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+  </button>
+  <div class="music-info">
+    <span class="music-label">want some fav song</span>
+    <div class="eq">
+      <div class="eq-bar"></div><div class="eq-bar"></div>
+      <div class="eq-bar"></div><div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Native HTML5 audio — mp3 file alongside HTML -->
+<audio id="audio-player" preload="none">
+  <source src="Udaariyan2_0.mp3" type="audio/mpeg"/>
+</audio>
+
+<script>
+/* ════════════════════════════════════════
+   SMOOTH NAV SCROLL
+════════════════════════════════════════ */
+function scrollTo_(sel){
+  document.querySelector(sel)?.scrollIntoView({behavior:'smooth'});
+}
+
+/* ════════════════════════════════════════
+   CURSOR GLOW
+════════════════════════════════════════ */
+const glow = document.getElementById('cursorGlow');
+document.addEventListener('mousemove', e => {
+  glow.style.left = e.clientX + 'px';
+  glow.style.top  = e.clientY + 'px';
+});
+
+/* ════════════════════════════════════════
+   PETALS
+════════════════════════════════════════ */
+(function(){
+  const c=document.getElementById('petals');
+  const cols=['#f4c6c6','#d6c9e8','#f0d5d5','#e8d8f0','#fce8e8'];
+  for(let i=0;i<22;i++){
+    const p=document.createElement('div');p.className='petal';
+    const sz=Math.random()*8+4;
+    Object.assign(p.style,{
+      left:Math.random()*100+'%',width:sz+'px',height:sz+'px',
+      background:cols[i%cols.length],
+      animationDuration:(Math.random()*14+12)+'s',
+      animationDelay:(Math.random()*16)+'s',
+      opacity:(Math.random()*.24+.06).toString(),
+    });
+    c.appendChild(p);
+  }
+})();
+
+/* ════════════════════════════════════════
+   STARS (final section)
+════════════════════════════════════════ */
+(function(){
+  const c=document.getElementById('starsContainer');
+  for(let i=0;i<70;i++){
+    const s=document.createElement('div');s.className='star';
+    const sz=Math.random()*2+1;
+    Object.assign(s.style,{
+      left:Math.random()*100+'%',top:Math.random()*100+'%',
+      width:sz+'px',height:sz+'px',
+      animationDuration:(Math.random()*3.5+2)+'s',
+      animationDelay:(Math.random()*6)+'s',
+    });
+    c.appendChild(s);
+  }
+})();
+
+/* ════════════════════════════════════════
+   SECTION BG VIDEOS — play/pause on scroll
+   Map: section id → video wrapper id
+════════════════════════════════════════ */
+const sectionVideoMap = {
+  message:   'vid-message',
+  moments:   'vid-moments',
+  questions: 'vid-questions',
+  gift:      'vid-gift',
+  final:     'vid-final',
+};
+
+const playingVideos = new Set();
+
+function getVideo(sectionId){
+  const wrapId = sectionVideoMap[sectionId];
+  if(!wrapId) return null;
+  return document.querySelector(`#${wrapId} video`);
+}
+
+function playBgVideo(sectionId){
+  const vid = getVideo(sectionId);
+  if(!vid || playingVideos.has(sectionId)) return;
+  playingVideos.add(sectionId);
+  vid.play().then(()=>{
+    requestAnimationFrame(()=>vid.classList.add('playing'));
+  }).catch(()=>{});
+}
+
+function pauseBgVideo(sectionId){
+  const vid = getVideo(sectionId);
+  if(!vid) return;
+  playingVideos.delete(sectionId);
+  vid.classList.remove('playing');
+  setTimeout(()=>{ if(!playingVideos.has(sectionId)) vid.pause(); }, 1200);
+}
+
+/* ════════════════════════════════════════
+   INTERSECTION OBSERVERS
+════════════════════════════════════════ */
+
+// 1) Section enter/leave → trigger bg video + active nav
+const sectionNames = ['home','message','moments','questions','gift','final'];
+const sectionEls = sectionNames.map(id=>document.getElementById(id));
+
+const sectionIO = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    const id = e.target.id;
+    if(e.isIntersecting){
+      // Play bg video
+      playBgVideo(id);
+      // Active nav link
+      document.querySelectorAll('.nav-links a').forEach(a=>{
+        a.classList.toggle('active', a.dataset.sec===id);
+      });
+    } else {
+      pauseBgVideo(id);
+    }
+  });
+},{threshold:0.3});
+
+sectionEls.forEach(s=>s&&sectionIO.observe(s));
+
+// 2) .reveal elements — stagger-fade-in when scrolled into view
+const revealIO = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      // Stagger siblings
+      const siblings = Array.from(e.target.parentElement.querySelectorAll('.reveal:not(.in)'));
+      const idx = siblings.indexOf(e.target);
+      setTimeout(()=>e.target.classList.add('in'), idx*110);
+      revealIO.unobserve(e.target);
+    }
+  });
+},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+
+document.querySelectorAll('.reveal').forEach(el=>revealIO.observe(el));
+
+// 3) Timeline cards — slide from sides
+const cardIO = new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('card-in'),80);
+      cardIO.unobserve(e.target);
+    }
+  });
+},{threshold:0.22,rootMargin:'0px 0px -30px 0px'});
+
+document.querySelectorAll('.moment-card').forEach(c=>cardIO.observe(c));
+
+// 4) Nav compact on scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('compact',window.scrollY>60);
+},{ passive:true });
+
+/* ════════════════════════════════════════
+   QUESTIONS
+════════════════════════════════════════ */
+const questions=[
+  {text:"If today were a colour, what would it be?",
+   options:["Soft lavender","Warm rose","Quiet gold","Deep midnight"],
+   responses:["Lavender holds peace — a beautiful answer.","Rose is warmth itself. That sounds like you.","Gold — like something rare and worth keeping.","Deep midnight. There's poetry in that."]},
+  {text:"What's one thing you're quietly proud of this year?",
+   options:["I kept going when it was hard","I learned something new about myself","I loved people well","I chose myself, finally"],
+   responses:["That takes more courage than people realise.","Self-knowledge is the most valuable kind.","To love well is everything. Truly.","That might be the bravest thing of all."]},
+  {text:"What kind of birthday do you actually want?",
+   options:["Cozy, quiet, and small","Surrounded by everyone I love","An adventure somewhere new","Just a really good meal, honestly"],
+   responses:["Cozy is underrated. You deserve soft things.","That sounds like a room full of warmth.","Somewhere new — I love that about you.","Honestly? Deeply relatable. And valid."]},
+  {text:"What do you most want from the year ahead?",
+   options:["More peace","More connection","More growth","Just more joy, please"],
+   responses:["Peace is everything. May it find you easily.","Connection heals things nothing else can.","You're already growing — keep going.","Joy is not a small wish. I hope it overflows."]},
+  {text:"What word feels like you, right now?",
+   options:["Becoming","Grateful","Restless","Enough"],
+   responses:["Becoming is the most honest thing a person can be.","Gratitude as identity — that's beautiful.","Restless means you're still reaching. Good.","Enough. Maybe the hardest word to believe. But true."]},
+];
+let cQ=0; const ans=new Array(questions.length).fill(null);
+
+function renderQ(){
+  const q=questions[cQ];
+  document.getElementById('qNum').textContent=`Question ${cQ+1} of ${questions.length}`;
+
+  // Animate question text transition
+  const qt=document.getElementById('qText');
+  qt.style.opacity='0';qt.style.transform='translateY(8px)';
+  setTimeout(()=>{
+    qt.textContent=q.text;
+    qt.style.transition='opacity 350ms ease,transform 350ms ease';
+    qt.style.opacity='1';qt.style.transform='translateY(0)';
+  },160);
+
+  const resp=document.getElementById('qResponse');
+  resp.textContent=ans[cQ]!==null?q.responses[ans[cQ]]:'';
+  resp.classList.toggle('show',ans[cQ]!==null);
+
+  const opts=document.getElementById('qOptions');opts.innerHTML='';
+  q.options.forEach((o,i)=>{
+    const b=document.createElement('button');
+    b.className='answer-btn'+(ans[cQ]===i?' selected':'');
+    b.textContent=o;b.onclick=()=>selectA(i);
+    b.style.opacity='0';b.style.transform='translateX(-8px)';
+    opts.appendChild(b);
+    setTimeout(()=>{
+      b.style.transition='opacity 300ms ease,transform 300ms ease,border-color 280ms,background 280ms,color 280ms';
+      b.style.opacity='1';b.style.transform='translateX(0)';
+    },200+i*60);
+  });
+
+  const dots=document.getElementById('qDots');dots.innerHTML='';
+  questions.forEach((_,i)=>{
+    const d=document.createElement('div');d.className='q-dot'+(i===cQ?' active':'');dots.appendChild(d);
+  });
+  document.getElementById('qPrev').disabled=cQ===0;
+  document.getElementById('qNext').disabled=cQ===questions.length-1;
+}
+
+function selectA(i){
+  ans[cQ]=i;
+  document.querySelectorAll('.answer-btn').forEach((b,idx)=>b.classList.toggle('selected',idx===i));
+  const r=document.getElementById('qResponse');
+  r.style.opacity='0';
+  setTimeout(()=>{
+    r.textContent=questions[cQ].responses[i];
+    r.classList.add('show');
+    r.style.transition='opacity 400ms ease';
+    r.style.opacity='1';
+  },80);
+}
+
+function changeQ(d){
+  cQ=Math.max(0,Math.min(questions.length-1,cQ+d));
+  renderQ();
+}
+
+renderQ();
+
+/* ════════════════════════════════════════
+   GIFT
+════════════════════════════════════════ */
+function openGiftForm(){
+  const area=document.getElementById('giftPromptArea');
+  area.style.transition='opacity 350ms ease';area.style.opacity='0';
+  setTimeout(()=>{area.style.display='none';document.getElementById('giftForm').classList.add('open');},360);
+}
+function declineGift(){
+  const area=document.getElementById('giftPromptArea');
+  area.style.transition='opacity 350ms ease';area.style.opacity='0';
+  setTimeout(()=>{area.style.display='none';document.getElementById('giftDecline').classList.add('show');},360);
+}
+function submitGift(e){
+  e.preventDefault();const form=e.target;
+  const btn=form.querySelector('button[type=submit]');
+  btn.textContent='Sending…';btn.disabled=true;
+  fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}})
+    .then(()=>{form.classList.remove('open');document.getElementById('giftSuccess').classList.add('show');})
+    .catch(()=>{form.classList.remove('open');document.getElementById('giftSuccess').classList.add('show');});
+}
+
+/* ════════════════════════════════════════
+   MUSIC PLAYER — HTML5 Audio
+   File: Udaariyan2_0.mp3  |  starts at 20s
+════════════════════════════════════════ */
+const audio     = document.getElementById('audio-player');
+const playBtn   = document.getElementById('playBtn');
+const playIcon  = document.getElementById('playIcon');
+const pauseIcon = document.getElementById('pauseIcon');
+const musicBar  = document.getElementById('music-bar');
+const START_SEC = 20;
+let   isPlaying = false;
+let   seeked    = false;
+
+// When metadata loaded, seek to 20s so it's ready on first press
+audio.addEventListener('loadedmetadata', () => {
+  if(!seeked){ audio.currentTime = START_SEC; seeked = true; }
+});
+
+// Loop back to 20s on end
+audio.addEventListener('ended', () => {
+  audio.currentTime = START_SEC;
+  audio.play();
+});
+
+function setPlayState(state){
+  isPlaying = state;
+  playIcon.style.display  = state ? 'none'  : 'block';
+  pauseIcon.style.display = state ? 'block' : 'none';
+  musicBar.classList.toggle('paused', !state);
+}
+
+playBtn.addEventListener('click', () => {
+  if(!isPlaying){
+    // Ensure seeked on first play if metadata wasn't ready yet
+    if(!seeked){ audio.currentTime = START_SEC; seeked = true; }
+    audio.play().then(() => setPlayState(true)).catch(()=>{});
+  } else {
+    audio.pause();
+    setPlayState(false);
+  }
+});
+</script>
+</body>
+</html>
