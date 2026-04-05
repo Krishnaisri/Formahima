@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
+<title>Happy Birthday, Mahima ✦</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ════════════════════════════════════════
+   TOKENS
+════════════════════════════════════════ */
+:root{
+  --bg:#FCF4F1;
+  --pink:#f4c6c6;
+  --lavender:#d6c9e8;
+  --text-primary:#2d2228;
+  --text-secondary:#7a6870;
+  --text-muted:#a08898;
+  --accent:#c47a8a;
+  --border:rgba(200,170,180,0.22);
+  --white:#ffffff;
+  --feather:#FCF4F1;
+  /* Glass card — light iOS theme */
+  --glass-bg: rgba(252,244,241,0.72);
+  --glass-border: rgba(255,255,255,0.55);
+  --glass-shadow: 0 8px 32px rgba(196,122,138,0.12), inset 0 1px 0 rgba(255,255,255,0.7);
+  --glass-blur: blur(16px) saturate(180%);
+}
+
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+*{ -webkit-tap-highlight-color:transparent; }
+*:focus{ outline:none !important; }
+button:focus,input:focus,textarea:focus,a:focus,select:focus{
+  outline:none !important;
+  box-shadow:0 0 0 3px rgba(232,207,199,0.8);
+  transition:box-shadow 200ms ease;
+}
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible){ box-shadow:none; }
+
+html{
+  scroll-behavior:smooth;
+  scroll-snap-type:y mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  color:var(--text-primary);
+  overflow-x:hidden;
+}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:rgba(196,122,138,0.25);border-radius:2px;}
+
+/* ════════════════════════════════════════
+   NAV — desktop horizontal, mobile hamburger
+════════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 52px;
+  background:rgba(252,244,241,0.88);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+  transition:padding 300ms ease;
+}
+nav.compact{padding:12px 52px;}
+.nav-brand{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1.1rem;color:var(--accent);font-weight:400;
+  letter-spacing:0.02em;flex-shrink:0;
+}
+.nav-links{display:flex;gap:30px;list-style:none;}
+.nav-links a{
+  font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--text-secondary);text-decoration:none;
+  transition:color 220ms;cursor:pointer;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-3px;left:0;right:0;
+  height:1px;background:var(--accent);
+  transform:scaleX(0);transition:transform 250ms;
+}
+.nav-links a:hover,
+.nav-links a.active{color:var(--accent);}
+.nav-links a:hover::after,
+.nav-links a.active::after{transform:scaleX(1);}
+
+/* Hamburger — mobile only */
+.nav-hamburger{
+  display:none;
+  flex-direction:column;gap:5px;
+  width:28px;cursor:pointer;
+  background:none;border:none;padding:4px;
+}
+.nav-hamburger span{
+  display:block;height:2px;border-radius:2px;
+  background:var(--accent);
+  transition:all 300ms ease;transform-origin:center;
+}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* Mobile menu drawer */
+.nav-drawer{
+  display:none;
+  position:fixed;top:0;left:0;right:0;bottom:0;z-index:490;
+  background:rgba(252,244,241,0.97);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  flex-direction:column;align-items:center;justify-content:center;
+  gap:36px;
+  opacity:0;transition:opacity 300ms ease;
+}
+.nav-drawer.open{display:flex;opacity:1;}
+.nav-drawer a{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1.6rem;color:var(--text-primary);text-decoration:none;
+  transition:color 200ms;cursor:pointer;
+}
+.nav-drawer a:hover{color:var(--accent);}
+
+/* ════════════════════════════════════════
+   SECTIONS — snap scroll, full viewport
+════════════════════════════════════════ */
+section{
+  position:relative;
+  min-height:100vh;
+  min-height:100dvh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:90px 48px 70px;
+  overflow:hidden;
+  scroll-snap-align:start;
+}
+
+/* ── BG VIDEO ── */
+.section-video-wrap{
+  position:absolute;inset:0;z-index:0;
+  pointer-events:none;overflow:hidden;
+}
+.section-video-wrap video{
+  width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity 1200ms ease;
+}
+.section-video-wrap video.playing{opacity:1;}
+
+/* Desktop feathered edges */
+.section-video-wrap::after{
+  content:'';
+  position:absolute;inset:0;z-index:2;
+  background:
+    linear-gradient(to right, var(--feather) 0%, transparent 16%, transparent 84%, var(--feather) 100%),
+    linear-gradient(to bottom,var(--feather) 0%, transparent 14%, transparent 86%, var(--feather) 100%);
+  pointer-events:none;
+}
+
+/* Scrim — readability over video */
+.section-scrim{
+  position:absolute;inset:0;z-index:1;
+  background:rgba(252,244,241,0.50);
+  pointer-events:none;
+}
+
+/* Content always above video */
+.section-content{position:relative;z-index:3;width:100%;}
+
+/* ════════════════════════════════════════
+   SCROLL REVEAL
+════════════════════════════════════════ */
+.reveal{
+  opacity:0;transform:translateY(28px);
+  transition:opacity 800ms cubic-bezier(.22,.68,0,1.05),
+              transform 800ms cubic-bezier(.22,.68,0,1.05);
+}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ════════════════════════════════════════
+   HOME
+════════════════════════════════════════ */
+#home{text-align:center;}
+.home-bg{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 15% 25%,rgba(244,198,198,0.22) 0%,transparent 55%),
+    radial-gradient(ellipse at 85% 75%,rgba(214,201,232,0.22) 0%,transparent 55%);
+}
+.floating-petals{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2;}
+.petal{position:absolute;border-radius:50% 0 50% 0;animation:petalFall linear infinite;}
+@keyframes petalFall{
+  0%  {transform:translateY(-30px) rotate(0deg);opacity:0;}
+  8%  {opacity:0.38;}92%{opacity:0.16;}
+  100%{transform:translateY(110vh) rotate(400deg);opacity:0;}
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.fu{opacity:0;animation:fadeUp 900ms cubic-bezier(.22,.68,0,1.05) forwards;}
+.d1{animation-delay:150ms;}.d2{animation-delay:320ms;}.d3{animation-delay:500ms;}.d4{animation-delay:680ms;}
+
+.hero-date{
+  font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:12px;
+}
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.6rem,6.5vw,5.8rem);font-weight:500;
+  line-height:1.06;letter-spacing:-0.028em;
+  color:var(--text-primary);margin-bottom:20px;
+}
+.hero-title em{font-style:italic;color:var(--accent);}
+.hero-sub{
+  font-weight:300;font-size:clamp(0.85rem,2.5vw,1rem);
+  color:var(--text-secondary);line-height:1.88;margin-bottom:48px;
+}
+.scroll-hint{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  opacity:0;animation:fadeUp 800ms ease 1.2s forwards;
+}
+.scroll-hint span{font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);}
+.scroll-line{
+  width:1px;height:32px;
+  background:linear-gradient(to bottom,var(--accent),transparent);
+  animation:scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(1);}50%{opacity:1;transform:scaleY(1.15);}}
+
+/* ════════════════════════════════════════
+   SHARED TYPOGRAPHY
+════════════════════════════════════════ */
+.section-eyebrow{
+  font-size:0.6rem;letter-spacing:0.24em;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:20px;
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,4vw,3.2rem);font-weight:500;
+  color:var(--text-primary);line-height:1.16;letter-spacing:-0.024em;
+  margin-bottom:28px;
+}
+.section-title em{font-style:italic;color:var(--accent);}
+.divider{
+  width:36px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  margin:0 auto 40px;
+}
+
+/* ════════════════════════════════════════
+   MESSAGE — LIGHT iOS GLASS CARD
+════════════════════════════════════════ */
+.letter-body{
+  font-weight:300;font-size:0.9rem;line-height:2;
+  color:var(--text-primary);        /* dark readable text */
+  text-align:left;
+  background:var(--glass-bg);       /* soft pastel-tinted glass */
+  border:1px solid var(--glass-border);
+  border-radius:18px;
+  padding:36px 44px;position:relative;
+  backdrop-filter:var(--glass-blur);
+  -webkit-backdrop-filter:var(--glass-blur);
+  box-shadow:var(--glass-shadow);
+}
+.letter-body::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.9),transparent);
+  border-radius:18px 18px 0 0;
+}
+.letter-body p{margin-bottom:16px;}
+.letter-body p:last-child{margin-bottom:0;}
+.letter-sign{
+  margin-top:24px;font-family:'Playfair Display',serif;
+  font-style:italic;font-size:1.05rem;
+  color:var(--accent);text-align:right;
+}
+
+/* ════════════════════════════════════════
+   MOMENTS TIMELINE
+════════════════════════════════════════ */
+.timeline{display:flex;flex-direction:column;position:relative;margin-top:40px;}
+.timeline::before{
+  content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;
+  background:linear-gradient(to bottom,transparent,var(--pink),var(--lavender),transparent);
+  transform:translateX(-50%);
+}
+.moment-card{
+  display:grid;grid-template-columns:1fr 60px 1fr;
+  align-items:center;margin-bottom:48px;
+  opacity:0;transition:opacity 700ms ease,transform 700ms cubic-bezier(.22,.68,0,1.05);
+}
+.moment-card.from-left {transform:translateX(-38px);}
+.moment-card.from-right{transform:translateX(38px);}
+.moment-card.card-in   {opacity:1;transform:translateX(0);}
+.moment-card:nth-child(odd)  .moment-info {grid-column:1;text-align:right;}
+.moment-card:nth-child(odd)  .moment-empty{grid-column:3;}
+.moment-card:nth-child(even) .moment-info {grid-column:3;text-align:left;}
+.moment-card:nth-child(even) .moment-empty{grid-column:1;}
+.moment-dot{
+  width:10px;height:10px;border-radius:50%;background:var(--accent);
+  margin:0 auto;box-shadow:0 0 0 4px rgba(196,122,138,0.15);grid-column:2;
+}
+.moment-info{padding:0 28px;}
+.moment-date{font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;}
+.moment-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--text-primary);margin-bottom:4px;}
+.moment-desc{font-size:0.76rem;line-height:1.75;color:var(--text-secondary);font-weight:300;}
+
+/* ════════════════════════════════════════
+   QUESTIONS — LIGHT iOS GLASS CARD
+════════════════════════════════════════ */
+.question-card{
+  background:var(--glass-bg);
+  border:1px solid var(--glass-border);
+  border-radius:18px;padding:40px 44px;margin-top:40px;
+  position:relative;overflow:hidden;
+  backdrop-filter:var(--glass-blur);
+  -webkit-backdrop-filter:var(--glass-blur);
+  box-shadow:var(--glass-shadow);
+}
+.question-card::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(244,198,198,0.12),transparent 60%);
+  pointer-events:none;
+}
+.question-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.9),transparent);
+  z-index:1;
+}
+.question-number{
+  font-size:0.56rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:16px;
+  position:relative;z-index:1;
+}
+.question-text{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(1.1rem,3vw,1.35rem);line-height:1.5;
+  color:var(--text-primary);           /* dark text on light glass */
+  margin-bottom:32px;
+  transition:opacity 350ms ease,transform 350ms ease;
+  position:relative;z-index:1;
+}
+.answer-options{display:flex;flex-direction:column;gap:9px;position:relative;z-index:1;}
+.answer-btn{
+  font-size:0.74rem;font-weight:400;letter-spacing:0.03em;
+  color:var(--text-secondary);
+  background:rgba(255,255,255,0.45);
+  border:1px solid rgba(200,170,180,0.30);
+  border-radius:10px;
+  padding:12px 16px;cursor:pointer;text-align:left;
+  transition:all 260ms ease;display:flex;align-items:center;gap:10px;
+  min-height:44px;
+}
+.answer-btn::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  border:1px solid var(--text-muted);flex-shrink:0;transition:all 240ms;
+}
+.answer-btn:hover{
+  border-color:rgba(196,122,138,0.5);
+  color:var(--text-primary);
+  background:rgba(255,255,255,0.70);
+  transform:translateX(4px);
+}
+.answer-btn:hover::before,
+.answer-btn.selected::before{background:var(--accent);border-color:var(--accent);}
+.answer-btn.selected{
+  border-color:rgba(196,122,138,0.6);
+  background:rgba(252,232,232,0.65);
+  color:var(--text-primary);
+}
+.answer-btn:disabled{pointer-events:none;opacity:0.55;}
+
+/* Progress dots */
+.q-dots{display:flex;gap:6px;justify-content:center;margin-top:24px;position:relative;z-index:1;}
+.q-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:rgba(196,122,138,0.22);
+  transition:background 300ms,transform 300ms;
+}
+.q-dot.active{background:var(--accent);transform:scale(1.35);}
+
+/* Response text */
+.question-response{
+  margin-top:18px;font-family:'Playfair Display',serif;font-style:italic;
+  font-size:0.85rem;color:var(--accent);
+  opacity:0;transition:opacity 420ms ease;min-height:20px;
+  position:relative;z-index:1;
+}
+.question-response.show{opacity:1;}
+
+/* Thank-you card */
+.q-thankyou{display:none;text-align:center;padding:8px 0;}
+.q-thankyou.show{display:block;}
+.q-thankyou-title{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1.4rem;color:var(--accent);margin-bottom:12px;line-height:1.4;
+}
+.q-thankyou-sub{
+  font-weight:300;font-size:0.82rem;color:var(--text-secondary);line-height:1.9;
+}
+
+/* ════════════════════════════════════════
+   GIFT
+════════════════════════════════════════ */
+.gift-box{
+  background:var(--glass-bg);border:1px solid var(--glass-border);
+  border-radius:18px;padding:40px 44px;margin-top:36px;
+  backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);
+  box-shadow:var(--glass-shadow);text-align:center;
+  position:relative;
+}
+.gift-box::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.9),transparent);
+  border-radius:18px 18px 0 0;
+}
+.gift-prompt{
+  font-family:'Playfair Display',serif;font-size:clamp(1.05rem,2.5vw,1.28rem);
+  font-weight:400;line-height:1.65;color:var(--text-primary);margin-bottom:28px;
+}
+.gift-prompt em{font-style:italic;color:var(--accent);}
+.gift-choice{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-primary{
+  font-size:0.72rem;letter-spacing:0.09em;text-transform:uppercase;
+  color:var(--white);background:var(--accent);border:none;
+  border-radius:6px;padding:13px 26px;cursor:pointer;
+  transition:all 240ms;min-height:44px;
+}
+.btn-primary:hover{background:#b86879;transform:translateY(-2px);box-shadow:0 6px 20px rgba(196,122,138,0.3);}
+.btn-secondary{
+  font-size:0.72rem;letter-spacing:0.09em;text-transform:uppercase;
+  color:var(--text-secondary);background:rgba(255,255,255,0.5);
+  border:1px solid rgba(200,170,180,0.35);border-radius:6px;
+  padding:13px 26px;cursor:pointer;transition:all 240ms;min-height:44px;
+}
+.btn-secondary:hover{color:var(--accent);border-color:rgba(196,122,138,0.5);}
+.gift-form{display:none;flex-direction:column;gap:12px;margin-top:28px;text-align:left;}
+.gift-form.open{display:flex;}
+.form-field label{
+  display:block;font-size:0.6rem;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;
+}
+.form-field input,.form-field textarea{
+  width:100%;font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:300;
+  color:var(--text-primary);background:rgba(255,252,250,0.85);
+  border:1px solid var(--border);border-radius:8px;
+  padding:11px 14px;outline:none;transition:border-color 220ms,box-shadow 220ms;
+  resize:none;min-height:44px;
+  -webkit-appearance:none;
+}
+.form-field input:focus,.form-field textarea:focus{
+  border-color:rgba(196,122,138,0.55);
+  box-shadow:0 0 0 3px rgba(232,207,199,0.8);
+}
+.gift-response{
+  display:none;margin-top:24px;
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1rem;line-height:1.8;
+}
+.gift-response.show{display:block;}
+.gift-response.decline{color:var(--text-secondary);}
+.gift-response.success{color:var(--accent);}
+
+/* Gift popup */
+#gift-popup{
+  display:none;position:fixed;inset:0;z-index:600;
+  background:rgba(45,34,40,0.40);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;
+  padding:20px;
+}
+#gift-popup.show{display:flex;}
+.gift-popup-box{
+  background:rgba(255,252,250,0.97);
+  border:1px solid var(--border);border-radius:20px;
+  padding:40px 44px;text-align:center;max-width:420px;width:100%;
+  animation:popupIn 380ms cubic-bezier(.22,.68,0,1.05) both;
+}
+@keyframes popupIn{from{opacity:0;transform:scale(0.88) translateY(16px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.gift-popup-icon{font-size:2.4rem;margin-bottom:16px;}
+.gift-popup-title{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1.4rem;color:var(--accent);margin-bottom:10px;line-height:1.3;
+}
+.gift-popup-sub{
+  font-weight:300;font-size:0.8rem;color:var(--text-secondary);
+  line-height:1.9;margin-bottom:24px;
+}
+.gift-popup-close{
+  font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--white);background:var(--accent);border:none;
+  border-radius:6px;padding:11px 24px;cursor:pointer;
+  transition:background 220ms;min-height:44px;
+}
+.gift-popup-close:hover{background:#b86879;}
+
+/* ════════════════════════════════════════
+   FINAL NOTE + STARS
+════════════════════════════════════════ */
+.stars-container{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
+.star{
+  position:absolute;border-radius:50%;background:var(--accent);
+  opacity:0;animation:twinkle ease-in-out infinite;
+}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(1);}50%{opacity:0.42;transform:scale(1.6);}}
+.final-quote{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(1.15rem,2.6vw,1.9rem);line-height:1.72;
+  color:var(--text-primary);margin:28px 0;letter-spacing:-0.01em;
+}
+.final-quote em{color:var(--accent);}
+.final-sub{
+  font-weight:300;font-size:clamp(0.78rem,2vw,0.85rem);
+  color:var(--text-secondary);line-height:2;margin-bottom:40px;
+}
+.final-sign{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(1rem,3vw,1.3rem);color:var(--accent);
+}
+
+/* ════════════════════════════════════════
+   MUSIC BAR
+════════════════════════════════════════ */
+#music-bar{
+  position:fixed;bottom:24px;right:20px;z-index:400;
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,252,250,0.94);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(196,122,138,0.22);
+  border-radius:60px;
+  padding:8px 16px 8px 8px;
+  box-shadow:0 6px 28px rgba(196,122,138,0.14),0 2px 8px rgba(0,0,0,0.06);
+  transition:transform 300ms ease,box-shadow 300ms ease;
+  animation:barSlideIn 800ms cubic-bezier(.22,.68,0,1.05) 1.8s both;
+  max-width:calc(100vw - 40px);
+}
+@keyframes barSlideIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+#music-bar:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(196,122,138,0.20);}
+
+.music-ctrl-btn{
+  width:32px;height:32px;border-radius:50%;
+  background:transparent;border:1px solid var(--border);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:all 200ms;
+}
+.music-ctrl-btn svg{width:13px;height:13px;fill:var(--accent);}
+.music-ctrl-btn:hover{background:rgba(196,122,138,0.10);border-color:rgba(196,122,138,0.4);}
+
+.music-play-btn{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--accent);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:transform 220ms,background 220ms;
+  box-shadow:0 3px 12px rgba(196,122,138,0.35);
+}
+.music-play-btn:hover{background:#b86879;transform:scale(1.08);}
+.music-play-btn svg{width:15px;height:15px;fill:#fff;}
+
+.music-info{display:flex;flex-direction:column;gap:1px;overflow:hidden;min-width:0;}
+.music-label{font-size:0.52rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap;}
+.music-track-name{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:0.78rem;color:var(--text-primary);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  max-width:140px;transition:opacity 250ms ease;
+}
+
+/* Equalizer */
+.eq{display:flex;align-items:flex-end;gap:2px;height:11px;margin-top:2px;}
+.eq-bar{
+  width:3px;border-radius:2px;background:var(--accent);
+  animation:eqBounce ease-in-out infinite;transform-origin:bottom;
+}
+.eq-bar:nth-child(1){height:6px;animation-duration:0.5s;}
+.eq-bar:nth-child(2){height:10px;animation-duration:0.7s;animation-delay:0.1s;}
+.eq-bar:nth-child(3){height:7px;animation-duration:0.55s;animation-delay:0.2s;}
+.eq-bar:nth-child(4){height:12px;animation-duration:0.65s;animation-delay:0.05s;}
+.eq-bar:nth-child(5){height:5px;animation-duration:0.45s;animation-delay:0.15s;}
+@keyframes eqBounce{0%,100%{transform:scaleY(0.25);}50%{transform:scaleY(1);}}
+#music-bar.paused .eq-bar{animation-play-state:paused;}
+
+/* ════════════════════════════════════════
+   CURSOR GLOW (desktop only)
+════════════════════════════════════════ */
+.cursor-glow{
+  position:fixed;z-index:0;pointer-events:none;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(196,122,138,0.07) 0%,transparent 70%);
+  transform:translate(-50%,-50%);
+  transition:left 80ms ease,top 80ms ease;
+  display:none;
+}
+@media(hover:hover){.cursor-glow{display:block;}}
+
+/* ════════════════════════════════════════
+   RESPONSIVE — MOBILE / 9:16
+════════════════════════════════════════ */
+@media(max-width:768px){
+
+  /* Nav → hamburger */
+  nav{padding:14px 20px;}
+  nav.compact{padding:10px 20px;}
+  .nav-links{display:none;}
+  .nav-hamburger{display:flex;}
+
+  /* Sections */
+  section{
+    padding:80px 18px 60px;
+    min-height:100vh;
+    min-height:100dvh;
+  }
+
+  /* Feathered edges — narrower on portrait */
+  .section-video-wrap::after{
+    background:
+      linear-gradient(to right,  var(--feather) 0%, transparent 8%,  transparent 92%, var(--feather) 100%),
+      linear-gradient(to bottom, var(--feather) 0%, transparent 10%, transparent 90%, var(--feather) 100%);
+  }
+
+  /* Typography */
+  .hero-title{font-size:clamp(2.2rem,10vw,3.2rem);}
+  .hero-sub{font-size:0.88rem;}
+  .section-title{font-size:clamp(1.6rem,7vw,2.2rem);margin-bottom:20px;}
+
+  /* Letter card */
+  .letter-body{padding:22px 20px;font-size:0.85rem;line-height:1.95;}
+
+  /* Question card */
+  .question-card{padding:26px 18px;margin-top:24px;}
+  .question-text{font-size:1.05rem;margin-bottom:24px;}
+  .answer-btn{padding:11px 14px;font-size:0.72rem;}
+
+  /* Gift box */
+  .gift-box{padding:24px 18px;margin-top:24px;}
+  .gift-popup-box{padding:30px 24px;}
+
+  /* Timeline — single column on mobile */
+  .timeline::before{left:16px;transform:none;}
+  .moment-card{
+    grid-template-columns:32px 1fr;
+    grid-template-rows:auto;
+    margin-bottom:32px;
+    column-gap:14px;
+  }
+  .moment-card:nth-child(odd) .moment-info,
+  .moment-card:nth-child(even) .moment-info{
+    grid-column:2;grid-row:1;text-align:left;
+  }
+  .moment-card:nth-child(odd) .moment-empty,
+  .moment-card:nth-child(even) .moment-empty{display:none;}
+  .moment-dot{grid-column:1;grid-row:1;margin:4px 0 0 8px;}
+  .moment-info{padding:0;}
+
+  /* Music bar — compact */
+  #music-bar{
+    bottom:12px;right:12px;
+    padding:7px 12px 7px 7px;gap:8px;
+  }
+  .music-track-name{max-width:90px;font-size:0.72rem;}
+  .music-play-btn{width:34px;height:34px;}
+  .music-ctrl-btn{width:28px;height:28px;}
+  .music-ctrl-btn svg{width:11px;height:11px;}
+
+  /* Final section */
+  .final-quote{font-size:clamp(1.05rem,5vw,1.4rem);}
+  .final-sub{font-size:0.78rem;}
+
+  /* Divider spacing */
+  .divider{margin-bottom:28px;}
+  .section-eyebrow{margin-bottom:14px;}
+}
+
+/* Extra small — very narrow screens */
+@media(max-width:380px){
+  .hero-title{font-size:2rem;}
+  .letter-body{padding:18px 14px;font-size:0.8rem;}
+  .question-card{padding:20px 14px;}
+  .music-track-name{max-width:70px;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ── NAV ── -->
+<nav id="mainNav">
+  <div class="nav-brand">Krishna</div>
+
+  <!-- Desktop links -->
+  <ul class="nav-links">
+    <li><a onclick="scrollTo_('#home')"      data-sec="home">Home</a></li>
+    <li><a onclick="scrollTo_('#message')"   data-sec="message">Message</a></li>
+    <li><a onclick="scrollTo_('#moments')"   data-sec="moments">Moments</a></li>
+    <li><a onclick="scrollTo_('#questions')" data-sec="questions">Questions</a></li>
+    <li><a onclick="scrollTo_('#gift')"      data-sec="gift">Gift ✦</a></li>
+    <li><a onclick="scrollTo_('#final')"     data-sec="final">Final Note</a></li>
+  </ul>
+
+  <!-- Hamburger (mobile) -->
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile drawer menu -->
+<div class="nav-drawer" id="navDrawer">
+  <a onclick="drawerNav('#home')">Home</a>
+  <a onclick="drawerNav('#message')">Message</a>
+  <a onclick="drawerNav('#moments')">Moments</a>
+  <a onclick="drawerNav('#questions')">Questions</a>
+  <a onclick="drawerNav('#gift')">Gift ✦</a>
+  <a onclick="drawerNav('#final')">Final Note</a>
+</div>
+
+<!-- ══ HOME ══ -->
+<section id="home">
+  <div class="section-video-wrap" id="vid-home">
+    <!-- desktop → Home.mp4 | mobile 9:16 → Home2.mp4  (swapped by JS) -->
+    <video muted playsinline loop preload="none" data-desktop="Home.mp4" data-mobile="Home2.mp4"></video>
+  </div>
+  <div class="section-scrim"></div>
+  <div class="home-bg"></div>
+  <div class="floating-petals" id="petals"></div>
+  <div class="section-content" style="text-align:center;position:relative;z-index:3;">
+    <p class="hero-date fu d1">15 May ✦ A day that belongs to you</p>
+    <h1 class="hero-title fu d2">Happy Birthday,<br><em>Mahima</em></h1>
+    <p class="hero-sub fu d3">
+      Softly, quietly, this little world was made<br>
+      just for you — and this one day that belongs to you alone.
+    </p>
+    <div class="scroll-hint">
+      <span>Scroll to begin</span>
+      <div class="scroll-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MESSAGE ══ -->
+<section id="message">
+  <div class="section-video-wrap" id="vid-message">
+    <video muted playsinline loop preload="none" data-desktop="Message.mp4" data-mobile="Message2.mp4"></video>
+  </div>
+  <div class="section-scrim"></div>
+  <div class="section-content" style="max-width:660px;text-align:center;">
+    <p class="section-eyebrow reveal">For you</p>
+    <h2 class="section-title reveal">A letter,<br><em>carefully kept</em></h2>
+    <div class="divider reveal"></div>
+    <div class="letter-body reveal">
+      <p>Mahima,</p>
+      <p>There are people who walk into your life and rearrange the furniture — not loudly, not dramatically, but in the way sunlight does when it shifts through a window at 4 pm and suddenly everything looks softer than it did before.</p>
+      <p>You're one of those people. You carry a quiet kind of warmth that doesn't announce itself. It just stays. And I think that's rarer than most people realize.</p>
+      <p>On this birthday, I hope you feel — for at least a few hours — how genuinely, completely seen you are. Not for what you do. Not for how well you hold things together. Just for being exactly you.</p>
+      <p>You deserve every beautiful, soft, wonder-filled thing this year might bring.</p>
+      <div class="letter-sign">With so much warmth, Krishna</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MOMENTS ══ -->
+<section id="moments">
+  <div class="section-video-wrap" id="vid-moments">
+    <video muted playsinline loop preload="none" data-desktop="Moments.mp4" data-mobile="Moments2.mp4"></video>
+  </div>
+  <div class="section-scrim"></div>
+  <div class="section-content" style="max-width:920px;width:100%;">
+    <div style="text-align:center;">
+      <p class="section-eyebrow reveal">A few memories</p>
+      <h2 class="section-title reveal">Moments that<br><em>stayed with me</em></h2>
+      <div class="divider reveal"></div>
+    </div>
+    <div class="timeline">
+      <div class="moment-card from-left">
+        <div class="moment-info"><p class="moment-date">The beginning</p><p class="moment-title">The first real conversation</p><p class="moment-desc">The kind where you forget time is passing. Where something shifts quietly and you don't notice until later — much later — that it mattered.</p></div>
+        <div class="moment-dot"></div><div class="moment-empty"></div>
+      </div>
+      <div class="moment-card from-right">
+        <div class="moment-empty"></div><div class="moment-dot"></div>
+        <div class="moment-info"><p class="moment-date">A quiet afternoon</p><p class="moment-title">Nothing, but everything</p><p class="moment-desc">Sometimes the most meaningful moments have no storyline. Just being present in the same space — that was enough. More than enough.</p></div>
+      </div>
+      <div class="moment-card from-left">
+        <div class="moment-info"><p class="moment-date">The laughing one</p><p class="moment-title">That ridiculous thing you said</p><p class="moment-desc">I still think about it and smile at the wrong times. You have this way of being funny without trying to be, which is its own rare art.</p></div>
+        <div class="moment-dot"></div><div class="moment-empty"></div>
+      </div>
+      <div class="moment-card from-right">
+        <div class="moment-empty"></div><div class="moment-dot"></div>
+        <div class="moment-info"><p class="moment-date">When it was hard</p><p class="moment-title">The day you kept going anyway</p><p class="moment-desc">I saw the weight you were carrying. I saw you carry it gracefully. That kind of quiet strength doesn't go unnoticed — even when you think it does.</p></div>
+      </div>
+      <div class="moment-card from-left">
+        <div class="moment-info"><p class="moment-date">Right now</p><p class="moment-title">This birthday</p><p class="moment-desc">The newest memory being made. A small digital universe built just to say: you matter, you are loved, and today belongs to you.</p></div>
+        <div class="moment-dot"></div><div class="moment-empty"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ QUESTIONS ══ -->
+<section id="questions">
+  <div class="section-video-wrap" id="vid-questions">
+    <video muted playsinline loop preload="none" data-desktop="Question.mp4" data-mobile="Question2.mp4"></video>
+  </div>
+  <div class="section-scrim"></div>
+  <div class="section-content" style="max-width:600px;text-align:center;">
+    <p class="section-eyebrow reveal">Let's go deeper</p>
+    <h2 class="section-title reveal">A few gentle<br><em>questions for you</em></h2>
+    <div class="divider reveal"></div>
+    <div class="question-card reveal" id="questionCard">
+      <p class="question-number" id="qNum">Question 1 of 6</p>
+      <p class="question-text"   id="qText"></p>
+      <div class="answer-options" id="qOptions"></div>
+      <p class="question-response" id="qResponse"></p>
+      <div class="q-dots" id="qDots"></div>
+    </div>
+    <div class="question-card reveal" id="qThankyouCard" style="display:none;">
+      <div class="q-thankyou show">
+        <div style="font-size:2rem;margin-bottom:14px;">🌸</div>
+        <p class="q-thankyou-title">Thank you for giving answers</p>
+        <p class="q-thankyou-sub">
+          Your answers were beautiful.<br>
+          Don't forget to give treat — you promised! 🎀
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GIFT ══ -->
+<section id="gift">
+  <div class="section-video-wrap" id="vid-gift">
+    <video muted playsinline loop preload="none" data-desktop="Gift.mp4" data-mobile="Gift2.mp4"></video>
+  </div>
+  <div class="section-scrim"></div>
+  <div class="section-content" style="max-width:560px;text-align:center;">
+    <p class="section-eyebrow reveal">Something waiting</p>
+    <h2 class="section-title reveal">A small gift,<br><em>if you'll let me</em></h2>
+    <div class="divider reveal"></div>
+    <div class="gift-box reveal">
+      <div id="giftPromptArea">
+        <p class="gift-prompt">Do you trust me enough to share your address so I can send you <em>something real?</em></p>
+        <div class="gift-choice">
+          <button class="btn-primary" onclick="openGiftForm()">Yes, I trust you</button>
+          <button class="btn-secondary" onclick="declineGift()">Maybe later</button>
+        </div>
+      </div>
+      <form class="gift-form" id="giftForm" action="https://formspree.io/f/xdapwqjv" method="POST" onsubmit="submitGift(event)">
+        <div class="form-field"><label>Your Name</label><input type="text" name="name" placeholder="Mahima Ahuja" required/></div>
+        <div class="form-field"><label>Address</label><textarea name="address" rows="3" placeholder="Street, City, State, Pincode" required></textarea></div>
+        <div class="form-field"><label>Phone (optional)</label><input type="tel" name="phone" placeholder="+91 XXXXX XXXXX"/></div>
+        <button type="submit" class="btn-primary" style="margin-top:4px;width:100%;" id="giftSubmitBtn">Send it over ✦</button>
+      </form>
+      <div class="gift-response decline" id="giftDecline">"That's okay… some things can wait.<br><em>The thought was always yours.</em>"</div>
+      <div class="gift-response success" id="giftSuccess">"Thanks for trusting me ✦<br><em>Something beautiful is on its way to you.</em>"</div>
+    </div>
+  </div>
+</section>
+
+<!-- Gift popup -->
+<div id="gift-popup">
+  <div class="gift-popup-box">
+    <div class="gift-popup-icon">📬</div>
+    <p class="gift-popup-title">Address sent to Krishna!</p>
+    <p class="gift-popup-sub">Your address has been sent safely.<br>Something warm and thoughtful is coming your way. 🎁</p>
+    <button class="gift-popup-close" onclick="closeGiftPopup()">Sweet, thank you ✦</button>
+  </div>
+</div>
+
+<!-- ══ FINAL NOTE ══ -->
+<section id="final">
+  <div class="section-video-wrap" id="vid-final">
+    <video muted playsinline loop preload="none" data-desktop="Final_note.mp4" data-mobile="Final_note2.mp4"></video>
+  </div>
+  <div class="section-scrim"></div>
+  <div class="stars-container" id="starsContainer"></div>
+  <div class="section-content" style="max-width:640px;text-align:center;">
+    <p class="section-eyebrow reveal">And finally</p>
+    <h2 class="section-title reveal">Before you go,<br><em>Mahima</em></h2>
+    <div class="divider reveal"></div>
+    <p class="final-quote reveal">
+      "May this year be gentler than the last —<br>
+      full of moments that feel like <em>exhaling,</em><br>
+      and people who make you feel like home."
+    </p>
+    <p class="final-sub reveal">
+      You are exactly the kind of person the world needs more of.<br>
+      The kind who listens. The kind who shows up. The kind who makes<br>
+      ordinary moments feel like they matter — because somehow, with you, they do.
+    </p>
+    <p class="final-sign reveal">With love, always — Krishna ✦</p>
+  </div>
+</section>
+
+<!-- ══ MUSIC BAR ══ -->
+<div id="music-bar" class="paused">
+  <button class="music-ctrl-btn" id="prevBtn" title="Previous">
+    <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+  </button>
+  <button class="music-play-btn" id="playBtn" title="Play / Pause">
+    <svg id="playIcon"  viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    <svg id="pauseIcon" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+  </button>
+  <button class="music-ctrl-btn" id="nextBtn" title="Next">
+    <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zm2-8.14L11.03 12 8 14.14V9.86zM16 6h2v12h-2z"/></svg>
+  </button>
+  <div class="music-info">
+    <span class="music-label">want some fav song</span>
+    <span class="music-track-name" id="trackName">Udaarian 2.0</span>
+    <div class="eq">
+      <div class="eq-bar"></div><div class="eq-bar"></div>
+      <div class="eq-bar"></div><div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Audio tracks -->
+<audio id="track-0" preload="none"><source src="1.mp3" type="audio/mpeg"/></audio>
+<audio id="track-1" preload="none"><source src="2.mp3" type="audio/mpeg"/></audio>
+<audio id="track-2" preload="none"><source src="3.mp3" type="audio/mpeg"/></audio>
+<audio id="track-3" preload="none"><source src="4.mp3" type="audio/mpeg"/></audio>
+
+<script>
+/* ════════════════════════════════════════
+   DETECT MOBILE / 9:16 PORTRAIT
+   Swap video src: desktop → Section.mp4
+                   mobile  → Section2.mp4
+════════════════════════════════════════ */
+const IS_MOBILE = window.matchMedia('(max-width:768px)').matches
+               || window.matchMedia('(orientation:portrait)').matches;
+
+// Set correct video src based on device orientation/size
+document.querySelectorAll('.section-video-wrap video').forEach(vid => {
+  const src = IS_MOBILE ? vid.dataset.mobile : vid.dataset.desktop;
+  vid.src = src;
+});
+
+/* ════════════════════════════════════════
+   SMOOTH SCROLL
+════════════════════════════════════════ */
+function scrollTo_(sel){
+  document.querySelector(sel)?.scrollIntoView({behavior:'smooth'});
+}
+
+/* ════════════════════════════════════════
+   HAMBURGER / DRAWER
+════════════════════════════════════════ */
+const hamburger = document.getElementById('hamburger');
+const navDrawer  = document.getElementById('navDrawer');
+
+hamburger.addEventListener('click', ()=>{
+  const open = navDrawer.classList.toggle('open');
+  hamburger.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+
+function drawerNav(sel){
+  navDrawer.classList.remove('open');
+  hamburger.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(()=> scrollTo_(sel), 200);
+}
+
+/* ════════════════════════════════════════
+   CURSOR GLOW
+════════════════════════════════════════ */
+const glow = document.getElementById('cursorGlow');
+document.addEventListener('mousemove', e=>{
+  glow.style.left = e.clientX + 'px';
+  glow.style.top  = e.clientY + 'px';
+});
+
+/* ════════════════════════════════════════
+   FLOATING PETALS
+════════════════════════════════════════ */
+(function(){
+  const c = document.getElementById('petals');
+  const cols = ['#f4c6c6','#d6c9e8','#f0d5d5','#e8d8f0','#fce8e8'];
+  const count = IS_MOBILE ? 12 : 22;
+  for(let i=0;i<count;i++){
+    const p=document.createElement('div');p.className='petal';
+    const sz=Math.random()*7+4;
+    Object.assign(p.style,{
+      left:Math.random()*100+'%',width:sz+'px',height:sz+'px',
+      background:cols[i%cols.length],
+      animationDuration:(Math.random()*14+12)+'s',
+      animationDelay:(Math.random()*16)+'s',
+      opacity:(Math.random()*.22+.06).toString(),
+    });
+    c.appendChild(p);
+  }
+})();
+
+/* ════════════════════════════════════════
+   STARS
+════════════════════════════════════════ */
+(function(){
+  const c=document.getElementById('starsContainer');
+  for(let i=0;i<70;i++){
+    const s=document.createElement('div');s.className='star';
+    const sz=Math.random()*2+1;
+    Object.assign(s.style,{
+      left:Math.random()*100+'%',top:Math.random()*100+'%',
+      width:sz+'px',height:sz+'px',
+      animationDuration:(Math.random()*3.5+2)+'s',
+      animationDelay:(Math.random()*6)+'s',
+    });
+    c.appendChild(s);
+  }
+})();
+
+/* ════════════════════════════════════════
+   SECTION BG VIDEOS — scroll trigger
+════════════════════════════════════════ */
+const sectionVideoMap={
+  home:'vid-home',message:'vid-message',moments:'vid-moments',
+  questions:'vid-questions',gift:'vid-gift',final:'vid-final',
+};
+const playingVideos=new Set();
+
+function getVideo(id){
+  const wid=sectionVideoMap[id];
+  return wid?document.querySelector('#'+wid+' video'):null;
+}
+function playBgVideo(id){
+  const vid=getVideo(id);
+  if(!vid||playingVideos.has(id))return;
+  playingVideos.add(id);
+  vid.play().then(()=>requestAnimationFrame(()=>vid.classList.add('playing'))).catch(()=>{});
+}
+function pauseBgVideo(id){
+  const vid=getVideo(id);
+  if(!vid)return;
+  playingVideos.delete(id);
+  vid.classList.remove('playing');
+  setTimeout(()=>{ if(!playingVideos.has(id)) vid.pause(); },1200);
+}
+
+/* ════════════════════════════════════════
+   INTERSECTION OBSERVERS
+════════════════════════════════════════ */
+
+// 1) Section enter/leave — video + active nav link
+const sectionNames=['home','message','moments','questions','gift','final'];
+const sectionIO=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    const id=e.target.id;
+    if(e.isIntersecting){
+      playBgVideo(id);
+      document.querySelectorAll('.nav-links a').forEach(a=>{
+        a.classList.toggle('active',a.dataset.sec===id);
+      });
+    } else {
+      pauseBgVideo(id);
+    }
+  });
+},{threshold:0.25});
+sectionNames.forEach(id=>{ const el=document.getElementById(id); if(el)sectionIO.observe(el); });
+
+// 2) Reveal elements — stagger fade-up
+const revealIO=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const sibs=Array.from(e.target.parentElement.querySelectorAll('.reveal:not(.in)'));
+      const idx=sibs.indexOf(e.target);
+      setTimeout(()=>e.target.classList.add('in'),idx*110);
+      revealIO.unobserve(e.target);
+    }
+  });
+},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>revealIO.observe(el));
+
+// 3) Timeline cards — slide in from sides
+const cardIO=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('card-in'),80);
+      cardIO.unobserve(e.target);
+    }
+  });
+},{threshold:0.18,rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.moment-card').forEach(c=>cardIO.observe(c));
+
+// 4) Nav compact on scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('compact',window.scrollY>50);
+},{passive:true});
+
+/* ════════════════════════════════════════
+   QUESTIONS
+════════════════════════════════════════ */
+const FORMSPREE_Q='https://formspree.io/f/xeepryde';
+
+const questions=[
+  {text:"If today were a colour, what would it be?",
+   options:["Soft lavender","Warm rose","Quiet gold","Deep midnight"],
+   responses:["Lavender holds peace — a beautiful answer.","Rose is warmth itself. That sounds like you.","Gold — like something rare and worth keeping.","Deep midnight. There's poetry in that."]},
+  {text:"What's one thing you're quietly proud of this year?",
+   options:["I kept going when it was hard","I learned something new about myself","I loved people well","I chose myself, finally"],
+   responses:["That takes more courage than people realise.","Self-knowledge is the most valuable kind.","To love well is everything. Truly.","That might be the bravest thing of all."]},
+  {text:"What kind of birthday do you actually want?",
+   options:["Cozy, quiet, and small","Surrounded by everyone I love","An adventure somewhere new","Just a really good meal, honestly"],
+   responses:["Cozy is underrated. You deserve soft things.","That sounds like a room full of warmth.","Somewhere new — I love that about you.","Honestly? Deeply relatable. And valid."]},
+  {text:"What do you most want from the year ahead?",
+   options:["More peace","More connection","More growth","Just more joy, please"],
+   responses:["Peace is everything. May it find you easily.","Connection heals things nothing else can.","You're already growing — keep going.","Joy is not a small wish. I hope it overflows."]},
+  {text:"What word feels like you, right now?",
+   options:["Becoming","Grateful","Restless","Enough"],
+   responses:["Becoming is the most honest thing a person can be.","Gratitude as identity — that's beautiful.","Restless means you're still reaching. Good.","Enough. Maybe the hardest word to believe. But true."]},
+  {text:"Do you like talking with Krishna?",
+   options:["Yes","No"],
+   responses:["That honestly made my day. Thank you ✦","That's okay — I'll keep trying to be worth it."]},
+];
+
+let cQ=0, qLocked=false;
+
+function sendAnswerToFormspree(qi,opt){
+  fetch(FORMSPREE_Q,{
+    method:'POST',
+    headers:{'Accept':'application/json','Content-Type':'application/json'},
+    body:JSON.stringify({question_number:qi+1,question_text:questions[qi].text,selected_option:opt,timestamp:new Date().toISOString()}),
+  }).catch(()=>{});
+}
+
+function renderQ(){
+  if(cQ>=questions.length){
+    document.getElementById('questionCard').style.display='none';
+    const ty=document.getElementById('qThankyouCard');
+    ty.style.display='block';
+    setTimeout(()=>ty.classList.add('in'),50);
+    return;
+  }
+  const q=questions[cQ];
+  document.getElementById('qNum').textContent=`Question ${cQ+1} of ${questions.length}`;
+
+  const qt=document.getElementById('qText');
+  qt.style.opacity='0';qt.style.transform='translateY(8px)';
+  setTimeout(()=>{
+    qt.textContent=q.text;
+    qt.style.transition='opacity 320ms ease,transform 320ms ease';
+    qt.style.opacity='1';qt.style.transform='translateY(0)';
+  },160);
+
+  const resp=document.getElementById('qResponse');
+  resp.textContent='';resp.classList.remove('show');
+
+  const opts=document.getElementById('qOptions');opts.innerHTML='';
+  q.options.forEach((o,i)=>{
+    const b=document.createElement('button');
+    b.className='answer-btn';b.textContent=o;b.onclick=()=>selectA(i);
+    b.style.opacity='0';b.style.transform='translateX(-8px)';
+    opts.appendChild(b);
+    setTimeout(()=>{
+      b.style.transition='opacity 280ms ease,transform 280ms ease,border-color 260ms,background 260ms,color 260ms';
+      b.style.opacity='1';b.style.transform='translateX(0)';
+    },180+i*55);
+  });
+
+  const dots=document.getElementById('qDots');dots.innerHTML='';
+  questions.forEach((_,i)=>{
+    const d=document.createElement('div');
+    d.className='q-dot'+(i===cQ?' active':'');
+    dots.appendChild(d);
+  });
+  qLocked=false;
+}
+
+function selectA(idx){
+  if(qLocked)return;
+  qLocked=true;
+  const q=questions[cQ];
+  document.querySelectorAll('.answer-btn').forEach((b,i)=>{
+    b.classList.toggle('selected',i===idx);b.disabled=true;
+  });
+  const resp=document.getElementById('qResponse');
+  resp.style.opacity='0';
+  setTimeout(()=>{
+    resp.textContent=q.responses[idx];
+    resp.classList.add('show');
+    resp.style.transition='opacity 380ms ease';
+    resp.style.opacity='1';
+  },80);
+  sendAnswerToFormspree(cQ,q.options[idx]);
+  setTimeout(()=>{ cQ++; renderQ(); },1100);
+}
+
+renderQ();
+
+/* ════════════════════════════════════════
+   GIFT
+════════════════════════════════════════ */
+function openGiftForm(){
+  const area=document.getElementById('giftPromptArea');
+  area.style.transition='opacity 320ms ease';area.style.opacity='0';
+  setTimeout(()=>{ area.style.display='none'; document.getElementById('giftForm').classList.add('open'); },330);
+}
+function declineGift(){
+  const area=document.getElementById('giftPromptArea');
+  area.style.transition='opacity 320ms ease';area.style.opacity='0';
+  setTimeout(()=>{ area.style.display='none'; document.getElementById('giftDecline').classList.add('show'); },330);
+}
+function submitGift(e){
+  e.preventDefault();
+  const form=e.target;
+  const btn=document.getElementById('giftSubmitBtn');
+  btn.textContent='Sending…';btn.disabled=true;
+  fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}})
+    .then(()=>{ form.classList.remove('open'); document.getElementById('giftSuccess').classList.add('show'); setTimeout(()=>document.getElementById('gift-popup').classList.add('show'),600); })
+    .catch(()=>{ form.classList.remove('open'); document.getElementById('giftSuccess').classList.add('show'); setTimeout(()=>document.getElementById('gift-popup').classList.add('show'),600); });
+}
+function closeGiftPopup(){
+  document.getElementById('gift-popup').classList.remove('show');
+}
+
+/* ════════════════════════════════════════
+   MULTI-TRACK MUSIC PLAYER
+   1→2→3→4→loop | volume 50%
+════════════════════════════════════════ */
+const trackList=[
+  {el:document.getElementById('track-0'),name:'Udaarian 2.0'},
+  {el:document.getElementById('track-1'),name:'Piche Tere'},
+  {el:document.getElementById('track-2'),name:'By My Side'},
+  {el:document.getElementById('track-3'),name:'Thinking Of You'},
+];
+let currentTrack=0, musicPlaying=false;
+
+const musicBar  =document.getElementById('music-bar');
+const playBtn   =document.getElementById('playBtn');
+const playIcon  =document.getElementById('playIcon');
+const pauseIcon =document.getElementById('pauseIcon');
+const prevBtn   =document.getElementById('prevBtn');
+const nextBtn   =document.getElementById('nextBtn');
+const trackName =document.getElementById('trackName');
+
+trackList.forEach(t=>{ t.el.volume=0.5; });
+trackList.forEach((t,i)=>{
+  t.el.addEventListener('ended',()=>{ currentTrack=(i+1)%trackList.length; playTrack(currentTrack); });
+});
+
+function playTrack(idx){
+  trackList.forEach((t,i)=>{ if(i!==idx){t.el.pause();t.el.currentTime=0;} });
+  currentTrack=idx;
+  trackName.style.opacity='0';
+  setTimeout(()=>{
+    trackName.textContent=trackList[idx].name;
+    trackName.style.transition='opacity 230ms ease';
+    trackName.style.opacity='1';
+  },120);
+  trackList[idx].el.play().then(()=>setPlayState(true)).catch(()=>setPlayState(false));
+}
+function setPlayState(playing){
+  musicPlaying=playing;
+  playIcon.style.display=playing?'none':'block';
+  pauseIcon.style.display=playing?'block':'none';
+  musicBar.classList.toggle('paused',!playing);
+}
+
+playBtn.addEventListener('click',()=>{
+  if(!musicPlaying) playTrack(currentTrack);
+  else{ trackList[currentTrack].el.pause(); setPlayState(false); }
+});
+prevBtn.addEventListener('click',()=>{ playTrack((currentTrack-1+trackList.length)%trackList.length); });
+nextBtn.addEventListener('click',()=>{ playTrack((currentTrack+1)%trackList.length); });
+
+window.addEventListener('load',()=>{
+  trackName.textContent=trackList[0].name;
+  trackList[0].el.play().then(()=>setPlayState(true)).catch(()=>setPlayState(false));
+});
+</script>
+</body>
+</html>
