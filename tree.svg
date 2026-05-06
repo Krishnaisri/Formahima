@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 550" fill="none">
+  <!-- Watercolor background wash -->
+  <ellipse cx="200" cy="180" rx="160" ry="150" fill="#f4c6c6" opacity="0.04"/>
+  <ellipse cx="180" cy="220" rx="120" ry="130" fill="#d6c9e8" opacity="0.04"/>
+
+  <!-- Ground shadow -->
+  <ellipse cx="200" cy="530" rx="60" ry="8" fill="#d4a0a0" opacity="0.12"/>
+
+  <!-- Main trunk — hand-drawn style with slight wobble -->
+  <path d="M200 530 C198 500 202 460 199 420 C196 380 203 340 200 300 C197 260 201 220 200 180 C199 150 200 130 200 110"
+        stroke="#c47a8a" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <!-- Trunk texture -->
+  <path d="M197 530 C196 490 200 450 198 400 C196 360 201 320 199 280"
+        stroke="#b86879" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.3"/>
+
+  <!-- Branches -->
+  <path d="M200 380 C180 365 150 360 120 365 C100 368 85 375 75 380"
+        stroke="#c47a8a" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path d="M200 350 C220 335 250 325 280 330 C300 333 320 340 330 348"
+        stroke="#c47a8a" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path d="M200 290 C175 275 145 268 115 275 C95 280 80 288 70 295"
+        stroke="#c47a8a" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.65"/>
+  <path d="M200 260 C225 245 260 238 290 245 C310 250 330 260 340 268"
+        stroke="#c47a8a" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.65"/>
+  <path d="M200 200 C180 185 155 178 130 183 C110 188 95 198 88 205"
+        stroke="#c47a8a" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+  <path d="M200 170 C218 155 240 148 265 153 C285 158 300 168 308 175"
+        stroke="#c47a8a" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+  <path d="M200 130 C185 115 165 108 145 115"
+        stroke="#c47a8a" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.55"/>
+  <path d="M200 110 C215 95 235 90 255 97"
+        stroke="#c47a8a" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.55"/>
+
+  <!-- Cherry blossom clusters — watercolor style -->
+  <!-- Cluster 1 - left bottom branch -->
+  <circle cx="90" cy="370" r="12" fill="#f4c6c6" opacity="0.35"/>
+  <circle cx="105" cy="362" r="10" fill="#fce8e8" opacity="0.4"/>
+  <circle cx="78" cy="378" r="8" fill="#d6c9e8" opacity="0.3"/>
+  <circle cx="120" cy="368" r="9" fill="#f0d5d5" opacity="0.35"/>
+  <!-- Petals -->
+  <circle cx="85" cy="365" r="5" fill="#f4c6c6" opacity="0.5"/>
+  <circle cx="95" cy="358" r="4" fill="#fce8e8" opacity="0.55"/>
+  <circle cx="110" cy="372" r="4.5" fill="#f4c6c6" opacity="0.45"/>
+
+  <!-- Cluster 2 - right upper branch -->
+  <circle cx="310" cy="340" r="14" fill="#f4c6c6" opacity="0.3"/>
+  <circle cx="295" cy="332" r="11" fill="#fce8e8" opacity="0.35"/>
+  <circle cx="325" cy="345" r="9" fill="#d6c9e8" opacity="0.3"/>
+  <circle cx="280" cy="338" r="8" fill="#f0d5d5" opacity="0.35"/>
+  <circle cx="305" cy="328" r="5" fill="#f4c6c6" opacity="0.5"/>
+  <circle cx="320" cy="338" r="4" fill="#fce8e8" opacity="0.5"/>
+
+  <!-- Cluster 3 - left middle -->
+  <circle cx="85" cy="285" r="13" fill="#d6c9e8" opacity="0.3"/>
+  <circle cx="100" cy="278" r="10" fill="#f4c6c6" opacity="0.35"/>
+  <circle cx="72" cy="292" r="9" fill="#fce8e8" opacity="0.3"/>
+  <circle cx="115" cy="282" r="7" fill="#e8d8f0" opacity="0.35"/>
+  <circle cx="90" cy="275" r="4.5" fill="#d6c9e8" opacity="0.5"/>
+
+  <!-- Cluster 4 - right middle -->
+  <circle cx="320" cy="255" r="12" fill="#f4c6c6" opacity="0.3"/>
+  <circle cx="305" cy="248" r="10" fill="#d6c9e8" opacity="0.35"/>
+  <circle cx="335" cy="262" r="8" fill="#fce8e8" opacity="0.3"/>
+  <circle cx="290" cy="252" r="7" fill="#f0d5d5" opacity="0.3"/>
+  <circle cx="315" cy="245" r="4" fill="#f4c6c6" opacity="0.5"/>
+
+  <!-- Cluster 5 - left upper -->
+  <circle cx="100" cy="195" r="11" fill="#f4c6c6" opacity="0.3"/>
+  <circle cx="115" cy="188" r="9" fill="#d6c9e8" opacity="0.35"/>
+  <circle cx="88" cy="202" r="8" fill="#fce8e8" opacity="0.3"/>
+  <circle cx="105" cy="185" r="4" fill="#f4c6c6" opacity="0.5"/>
+
+  <!-- Cluster 6 - right upper -->
+  <circle cx="290" cy="163" r="11" fill="#d6c9e8" opacity="0.3"/>
+  <circle cx="275" cy="155" r="9" fill="#f4c6c6" opacity="0.35"/>
+  <circle cx="305" cy="170" r="8" fill="#fce8e8" opacity="0.3"/>
+  <circle cx="285" cy="152" r="4" fill="#d6c9e8" opacity="0.5"/>
+
+  <!-- Cluster 7 - top -->
+  <circle cx="155" cy="118" r="10" fill="#f4c6c6" opacity="0.3"/>
+  <circle cx="245" cy="100" r="10" fill="#d6c9e8" opacity="0.3"/>
+  <circle cx="200" cy="95" r="8" fill="#fce8e8" opacity="0.3"/>
+  <circle cx="170" cy="108" r="6" fill="#f0d5d5" opacity="0.35"/>
+
+  <!-- Falling petals -->
+  <ellipse cx="60" cy="420" rx="4" ry="3" fill="#f4c6c6" opacity="0.3" transform="rotate(25 60 420)"/>
+  <ellipse cx="340" cy="450" rx="3.5" ry="2.5" fill="#d6c9e8" opacity="0.25" transform="rotate(-15 340 450)"/>
+  <ellipse cx="150" cy="480" rx="3" ry="2" fill="#f4c6c6" opacity="0.2" transform="rotate(40 150 480)"/>
+  <ellipse cx="260" cy="500" rx="3.5" ry="2.5" fill="#fce8e8" opacity="0.2" transform="rotate(-30 260 500)"/>
+  <ellipse cx="100" cy="460" rx="3" ry="2" fill="#e8d8f0" opacity="0.2" transform="rotate(15 100 460)"/>
+
+  <!-- Small detail flowers (5-petal) -->
+  <g transform="translate(92,360)" opacity="0.6">
+    <circle cx="0" cy="-4" r="2.5" fill="#fce8e8"/>
+    <circle cx="3.8" cy="-1.2" r="2.5" fill="#fce8e8"/>
+    <circle cx="2.4" cy="3.2" r="2.5" fill="#fce8e8"/>
+    <circle cx="-2.4" cy="3.2" r="2.5" fill="#fce8e8"/>
+    <circle cx="-3.8" cy="-1.2" r="2.5" fill="#fce8e8"/>
+    <circle cx="0" cy="0" r="1.5" fill="#c47a8a" opacity="0.6"/>
+  </g>
+  <g transform="translate(310,335)" opacity="0.6">
+    <circle cx="0" cy="-4" r="2.5" fill="#fce8e8"/>
+    <circle cx="3.8" cy="-1.2" r="2.5" fill="#fce8e8"/>
+    <circle cx="2.4" cy="3.2" r="2.5" fill="#fce8e8"/>
+    <circle cx="-2.4" cy="3.2" r="2.5" fill="#fce8e8"/>
+    <circle cx="-3.8" cy="-1.2" r="2.5" fill="#fce8e8"/>
+    <circle cx="0" cy="0" r="1.5" fill="#c47a8a" opacity="0.6"/>
+  </g>
+  <g transform="translate(200,100)" opacity="0.5">
+    <circle cx="0" cy="-3.5" r="2" fill="#d6c9e8"/>
+    <circle cx="3.3" cy="-1" r="2" fill="#d6c9e8"/>
+    <circle cx="2" cy="2.8" r="2" fill="#d6c9e8"/>
+    <circle cx="-2" cy="2.8" r="2" fill="#d6c9e8"/>
+    <circle cx="-3.3" cy="-1" r="2" fill="#d6c9e8"/>
+    <circle cx="0" cy="0" r="1.2" fill="#c47a8a" opacity="0.5"/>
+  </g>
+</svg>
